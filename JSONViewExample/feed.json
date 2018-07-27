@@ -1,0 +1,100 @@
+{
+    "class": "UIView",
+    "name": "root",
+    "layout": {
+        "flex-direction": "column",
+        "align-items": "stretch",
+        "justify-content": "center",
+        "margin-bottom": 24,
+        "margin-top": 24
+    },
+    "items": [
+        {
+            "class": "UIView",
+            "name": "row1",
+            "layout": {
+                "flex-direction": "row",
+                "justify-content": "flex-start",
+                "align-items": "flex-start",
+                "margin-bottom": 16,
+            },
+            "items": [
+                {
+                    "class": "UIImageView",
+                    "name": "image",
+                    "appearance": {
+                        "backgroundColor": {
+                            "type": "color",
+                            "value": "purpleColor"
+                        },
+                        "image": {
+                            "type": "image",
+                            "value": "image.png"
+                        }
+                    },
+                    "layout": {
+                        "align-self": "flex-start",
+                        "height": 80,
+                        "width": 80,
+                        "margin-end": 16,
+                        "margin-start": 24
+                    }
+                },
+                {
+                    "class": "UIView",
+                    "name": "titleSubtitle",
+                    "appearance": {
+                    },
+                    "layout": {
+                        "flex-direction": "column",
+                        "align-items": "flex-start",
+                        "justify-content": "flex-start",
+                        "margin-end": 16,
+                        "flex-shrink": 1
+                    },
+                    "items": [
+                        {
+                            "class": "UILabel",
+                            "name": "title",
+                            "appearance": {
+                                "backgroundColor": {
+                                    "type": "color",
+                                    "value": "greenColor"
+                                },
+                                "text": "Title 1",
+                                "textColor": {
+                                    "type": "color",
+                                    "value": "purpleColor"
+                                },
+                                "numberOfLines": 0
+                            },
+                            "layout": {
+                                "align-self": "flex-start",
+                                "margin-bottom": 4
+                            }
+                        },
+                        {
+                            "class": "UILabel",
+                            "name": "subtitle",
+                            "appearance": {
+                                "backgroundColor": {
+                                    "type": "color",
+                                    "value": "greenColor"
+                                },
+                                "text": "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. 1",
+                                "textColor": {
+                                    "type": "color",
+                                    "value": "purpleColor"
+                                },
+                                "numberOfLines": 0
+                            },
+                            "layout": {
+                                "align-self": "flex-start"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
