@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface JSONView : UIView
+    @property (nonatomic, readonly) NSString *title;
 - (instancetype) initWithDictionary:(NSDictionary *)dictionary;
 @end

@@ -13,7 +13,7 @@
 @interface JSONViewController ()
 @property (nonatomic) NSDictionary *viewDictionary;
 @property (nonatomic, readonly) dispatch_queue_t parseQueue;
-@property (nonatomic) UIView *containedView;
+@property (nonatomic) JSONView *containedView;
 @property (nonatomic) UIScrollView *scrollContainer;
 @property (nonatomic) UIActivityIndicatorView *activityIndicatorView;
 @end
@@ -67,6 +67,7 @@
     if (!self.containedView.superview) {
         [self.scrollContainer addSubview:self.containedView];
     }
+    self.title = self.containedView.title;
     [self.scrollContainer configureLayoutWithBlock:^(YGLayout * _Nonnull layout) {
         layout.isEnabled = YES;
         layout.width = YGPointValue(self.view.bounds.size.width);

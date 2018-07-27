@@ -30,6 +30,7 @@
     if ((self = [super initWithFrame:CGRectZero])) {
         JSONLayout *jsonLayout = [[JSONLayout alloc] initWithDictionary:dictionary[@"layout"]];
         [self configureAppearance:self withDictionary:dictionary[@"appearance"]];
+        _title = dictionary[@"appearance"][@"title"];
         [self configureLayoutWithBlock:^(YGLayout * _Nonnull layout) {
             [self configureView:self forLayout:layout withJsonLayout:jsonLayout];
         }];
