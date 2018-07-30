@@ -1,0 +1,41 @@
+{
+    "class": "UIView",
+    "name": "modal",
+    "layout": {
+        "flex-direction": "column",
+        "align-items": "flex-start",
+        "justify-content": "center",
+        "margin-bottom": 24,
+        "margin-top": 24,
+        "margin-start": 24,
+        "margin-end": 24
+    },
+    "appearance": {
+        "title" : "Modal sample",
+        "backgroundColor": {
+            "type": "color",
+            "value": "grayColor"
+        }
+    },
+    "items": [
+        {
+            "class": "UILabel",
+            "name": "close",
+            "layout": {
+                "flex-direction": "column",
+                "align-items": "center",
+                "justify-content": "center",
+                "margin-top": "50%"
+            },
+            "appearance": {
+                "text": "Tap to close"
+            },
+            "actions": [
+                {
+                    "type": "pop",
+                    "trigger": "tap"
+                }
+            ]
+        }
+    ]
+}
