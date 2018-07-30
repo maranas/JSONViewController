@@ -7,6 +7,7 @@
 //
 
 #import "JSONViewController.h"
+#import "JSONViewControllerRouter.h"
 #import "UIView+JSONView.h"
 @import YogaKit;
 
@@ -55,6 +56,7 @@
 - (void) updateView {
     if (!self.containedView.superview) {
         [self.scrollContainer addSubview:self.containedView];
+        self.scrollContainer.backgroundColor = self.containedView.backgroundColor ?: [UIColor whiteColor];
     }
     self.title = self.containedView.title;
     [self.scrollContainer configureLayoutWithBlock:^(YGLayout * _Nonnull layout) {
@@ -83,7 +85,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
     [self updateWithJSONDictionary:self.viewDictionary];
     self.scrollContainer = [[UIScrollView alloc] initWithFrame:CGRectZero];
     self.scrollContainer.translatesAutoresizingMaskIntoConstraints = NO;
@@ -126,10 +127,17 @@
                                  multiplier:1.0
                                    constant:0]];
 }
+    
+- (void)didMoveToParentViewController:(UIViewController *)parent {
+    [super didMoveToParentViewController:parent];
+    if (parent == nil) {
+        [[JSONViewControllerRouter sharedInstance] removedFromStack:self];
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+    
 @end

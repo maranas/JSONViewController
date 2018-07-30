@@ -1,23 +1,23 @@
 //
-//  JSONPushViewControllerAction.m
+//  JSONPresentViewControllerAction.m
 //  JSONViewExample
 //
-//  Created by Moises Anthony Aranas on 7/29/18.
+//  Created by Moises Anthony Aranas on 7/30/18.
 //
 
-#import "JSONPushViewControllerAction.h"
+#import "JSONPresentViewControllerAction.h"
 #import "JSONActionPayload.h"
 #import "JSONActionPayloadMap.h"
 #import "JSONViewController.h"
 #import "JSONViewControllerRouter.h"
 
-@interface JSONPushViewControllerAction ()
+@interface JSONPresentViewControllerAction ()
 @property (nonatomic) id <JSONActionPayload> payload;
 @end
 
-@implementation JSONPushViewControllerAction
+@implementation JSONPresentViewControllerAction
 @synthesize triggerType = _triggerType;
- 
+    
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     if ((self = [super init])) {
         _triggerType = dictionary[@"trigger"];
@@ -39,7 +39,7 @@
     NSDictionary *parsedJSON = self.payload.jsonDictionary;
     dispatch_async(dispatch_get_main_queue(), ^{
         JSONViewController *newViewController = [[JSONViewController alloc] initWithJSONDictionary:parsedJSON];
-        [[JSONViewControllerRouter sharedInstance] pushViewController:newViewController modal:NO animated:YES];
+        [[JSONViewControllerRouter sharedInstance] pushViewController:newViewController modal:YES animated:YES];
     });
 }
     

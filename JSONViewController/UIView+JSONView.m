@@ -11,6 +11,8 @@
 #import "JSONImage.h"
 #import "JSONAction.h"
 #import "JSONPushViewControllerAction.h"
+#import "JSONPresentViewControllerAction.h"
+#import "JSONPopViewControllerAction.h"
 #import <objc/runtime.h>
 @import YogaKit;
 
@@ -33,7 +35,9 @@
     static NSDictionary *classLookup;
     dispatch_once(&onceToken, ^{
         classLookup = @{
-                        @"push" : [JSONPushViewControllerAction class]
+                        @"push" : [JSONPushViewControllerAction class],
+                        @"present": [JSONPresentViewControllerAction class],
+                        @"pop": [JSONPopViewControllerAction class]
                         };
     });
     return classLookup[type];
@@ -179,6 +183,7 @@
     }
     if (actionObjects.count) {
         objc_setAssociatedObject(self, @selector(configureActions:), actionObjects, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        self.userInteractionEnabled = YES;
     }
 }
     

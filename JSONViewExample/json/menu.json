@@ -61,7 +61,8 @@
                     },
                     "layout": {
                         "align-self": "stretch",
-                        "height": 0.5
+                        "height": 0.5,
+                        "margin-bottom": 24
                     }
                 }
             ],
@@ -72,6 +73,69 @@
                     "payload": {
                         "type": "file",
                          "filename": "feed.json"
+                    }
+                }
+            ]
+        },
+        {
+            "class": "UIView",
+            "name": "titleSubtitle",
+            "appearance": {
+            },
+            "layout": {
+                "flex-direction": "column",
+                "align-items": "flex-start",
+                "justify-content": "flex-start",
+                "flex-shrink": 1
+            },
+            "items": [
+                {
+                    "class": "UILabel",
+                    "name": "title",
+                    "appearance": {
+                        "text": "Modal presentation",
+                        "numberOfLines": 0
+                    },
+                    "layout": {
+                        "align-self": "flex-start",
+                        "margin-bottom": 4
+                    }
+                },
+                {
+                    "class": "UILabel",
+                    "name": "subtitle",
+                    "appearance": {
+                        "text": "Modally presented view",
+                        "numberOfLines": 0
+                    },
+                    "layout": {
+                        "align-self": "flex-start",
+                        "margin-bottom": 24
+                    }
+                },
+                {
+                    "class": "UIView",
+                    "name": "separator",
+                    "appearance": {
+                        "backgroundColor": {
+                            "type": "color",
+                            "value": "lightGrayColor"
+                        }
+                    },
+                    "layout": {
+                        "align-self": "stretch",
+                        "height": 0.5,
+                        "margin-bottom": 24
+                    }
+                }
+            ],
+            "actions": [
+                {
+                    "type": "present",
+                    "trigger": "tap",
+                    "payload": {
+                        "type": "file",
+                         "filename": "modal.json"
                     }
                 }
             ]
