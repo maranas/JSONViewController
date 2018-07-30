@@ -56,10 +56,6 @@
                             "class": "UILabel",
                             "name": "title",
                             "appearance": {
-                                "backgroundColor": {
-                                    "type": "color",
-                                    "value": "greenColor"
-                                },
                                 "text": "Title 1",
                                 "textColor": {
                                     "type": "color",
@@ -76,10 +72,6 @@
                             "class": "UILabel",
                             "name": "subtitle",
                             "appearance": {
-                                "backgroundColor": {
-                                    "type": "color",
-                                    "value": "greenColor"
-                                },
                                 "text": "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain... was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.",
                                 "textColor": {
                                     "type": "color",
@@ -94,6 +86,21 @@
                     ]
                 }
             ]
+        },
+        {
+            "class": "UIView",
+            "name": "separator",
+            "appearance": {
+                "backgroundColor": {
+                    "type": "color",
+                    "value": "lightGrayColor"
+                }
+            },
+            "layout": {
+                "align-self": "stretch",
+                "height": 0.5,
+                "margin-bottom": 16
+            }
         },
         {
             "class": "UIView",
@@ -137,10 +144,6 @@
                             "class": "UILabel",
                             "name": "title",
                             "appearance": {
-                                "backgroundColor": {
-                                    "type": "color",
-                                    "value": "greenColor"
-                                },
                                 "text": "Title 1",
                                 "textColor": {
                                     "type": "color",
@@ -157,10 +160,6 @@
                             "class": "UILabel",
                             "name": "subtitle",
                             "appearance": {
-                                "backgroundColor": {
-                                    "type": "color",
-                                    "value": "greenColor"
-                                },
                                 "text": "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. 1",
                                 "textColor": {
                                     "type": "color",
@@ -175,6 +174,21 @@
                     ]
                 }
             ]
+        },
+        {
+            "class": "UIView",
+            "name": "separator",
+            "appearance": {
+                "backgroundColor": {
+                    "type": "color",
+                    "value": "lightGrayColor"
+                }
+            },
+            "layout": {
+                "align-self": "stretch",
+                "height": 0.5,
+                "margin-bottom": 16
+            }
         },
         {
             "class": "UIView",
@@ -218,10 +232,6 @@
                             "class": "UILabel",
                             "name": "title",
                             "appearance": {
-                                "backgroundColor": {
-                                    "type": "color",
-                                    "value": "greenColor"
-                                },
                                 "text": "Title 1",
                                 "textColor": {
                                     "type": "color",
@@ -238,10 +248,6 @@
                             "class": "UILabel",
                             "name": "subtitle",
                             "appearance": {
-                                "backgroundColor": {
-                                    "type": "color",
-                                    "value": "greenColor"
-                                },
                                 "text": "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. 1",
                                 "textColor": {
                                     "type": "color",
@@ -256,6 +262,21 @@
                     ]
                 }
             ]
+        },
+        {
+            "class": "UIView",
+            "name": "separator",
+            "appearance": {
+                "backgroundColor": {
+                    "type": "color",
+                    "value": "lightGrayColor"
+                }
+            },
+            "layout": {
+                "align-self": "stretch",
+                "height": 0.5,
+                "margin-bottom": 16
+            }
         },
         {
             "class": "UIView",
@@ -299,10 +320,6 @@
                             "class": "UILabel",
                             "name": "title",
                             "appearance": {
-                                "backgroundColor": {
-                                    "type": "color",
-                                    "value": "greenColor"
-                                },
                                 "text": "Title 1",
                                 "textColor": {
                                     "type": "color",
@@ -319,10 +336,6 @@
                             "class": "UILabel",
                             "name": "subtitle",
                             "appearance": {
-                                "backgroundColor": {
-                                    "type": "color",
-                                    "value": "greenColor"
-                                },
                                 "text": "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. 1",
                                 "textColor": {
                                     "type": "color",
@@ -337,6 +350,21 @@
                     ]
                 }
             ]
+        },
+        {
+            "class": "UIView",
+            "name": "separator",
+            "appearance": {
+                "backgroundColor": {
+                    "type": "color",
+                    "value": "lightGrayColor"
+                }
+            },
+            "layout": {
+                "align-self": "stretch",
+                "height": 0.5,
+                "margin-bottom": 16
+            }
         },
         {
             "class": "UIView",
@@ -380,10 +408,6 @@
                             "class": "UILabel",
                             "name": "title",
                             "appearance": {
-                                "backgroundColor": {
-                                    "type": "color",
-                                    "value": "greenColor"
-                                },
                                 "text": "Title 1",
                                 "textColor": {
                                     "type": "color",
@@ -400,10 +424,6 @@
                             "class": "UILabel",
                             "name": "subtitle",
                             "appearance": {
-                                "backgroundColor": {
-                                    "type": "color",
-                                    "value": "greenColor"
-                                },
                                 "text": "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. 1",
                                 "textColor": {
                                     "type": "color",

@@ -13,12 +13,15 @@
 		1C3EC20E2109EE930074A601 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C3EC20D2109EE930074A601 /* Assets.xcassets */; };
 		1C3EC2112109EE930074A601 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C3EC20F2109EE930074A601 /* LaunchScreen.storyboard */; };
 		1C3EC2142109EE930074A601 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C3EC2132109EE930074A601 /* main.m */; };
-		1C3EC229210B353C0074A601 /* feed.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C3EC228210B353C0074A601 /* feed.json */; };
 		8052ADAA210BBD79009A4098 /* JSONImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8052ADA0210BBD79009A4098 /* JSONImage.m */; };
 		8052ADAB210BBD79009A4098 /* JSONColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8052ADA3210BBD79009A4098 /* JSONColor.m */; };
 		8052ADAC210BBD79009A4098 /* JSONLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8052ADA5210BBD79009A4098 /* JSONLayout.m */; };
 		8052ADAD210BBD79009A4098 /* JSONViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8052ADA8210BBD79009A4098 /* JSONViewController.m */; };
-		8052ADAE210BBD79009A4098 /* JSONView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8052ADA9210BBD79009A4098 /* JSONView.m */; };
+		8052ADB2210C6AD3009A4098 /* menu.json in Resources */ = {isa = PBXBuildFile; fileRef = 8052ADB0210C6AD3009A4098 /* menu.json */; };
+		8052ADB3210C6AD3009A4098 /* feed.json in Resources */ = {isa = PBXBuildFile; fileRef = 8052ADB1210C6AD3009A4098 /* feed.json */; };
+		8052ADB8210E33B1009A4098 /* JSONPushViewControllerAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 8052ADB7210E33B1009A4098 /* JSONPushViewControllerAction.m */; };
+		8052ADBC210E60CA009A4098 /* JSONFileActionPayload.m in Sources */ = {isa = PBXBuildFile; fileRef = 8052ADBB210E60CA009A4098 /* JSONFileActionPayload.m */; };
+		8052ADC0210F9FB4009A4098 /* UIView+JSONView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8052ADBF210F9FB4009A4098 /* UIView+JSONView.m */; };
 		8FD37DE83B878AAD7DE85777 /* Pods_JSONViewExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B693174770C8DAB73D215C9F /* Pods_JSONViewExample.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,7 +36,6 @@
 		1C3EC2102109EE930074A601 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1C3EC2122109EE930074A601 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C3EC2132109EE930074A601 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		1C3EC228210B353C0074A601 /* feed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = feed.json; sourceTree = "<group>"; };
 		45A343F29E43BE7A1DE8D9FE /* Pods-JSONViewExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSONViewExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-JSONViewExample/Pods-JSONViewExample.release.xcconfig"; sourceTree = "<group>"; };
 		8052AD9F210BBD79009A4098 /* JSONColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONColor.h; sourceTree = "<group>"; };
 		8052ADA0210BBD79009A4098 /* JSONImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONImage.m; sourceTree = "<group>"; };
@@ -42,10 +44,18 @@
 		8052ADA3210BBD79009A4098 /* JSONColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONColor.m; sourceTree = "<group>"; };
 		8052ADA4210BBD79009A4098 /* JSONViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONViewController.h; sourceTree = "<group>"; };
 		8052ADA5210BBD79009A4098 /* JSONLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONLayout.m; sourceTree = "<group>"; };
-		8052ADA6210BBD79009A4098 /* JSONView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONView.h; sourceTree = "<group>"; };
 		8052ADA7210BBD79009A4098 /* JSONLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONLayout.h; sourceTree = "<group>"; };
 		8052ADA8210BBD79009A4098 /* JSONViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONViewController.m; sourceTree = "<group>"; };
-		8052ADA9210BBD79009A4098 /* JSONView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONView.m; sourceTree = "<group>"; };
+		8052ADB0210C6AD3009A4098 /* menu.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = menu.json; sourceTree = "<group>"; };
+		8052ADB1210C6AD3009A4098 /* feed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = feed.json; sourceTree = "<group>"; };
+		8052ADB5210E3337009A4098 /* JSONAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONAction.h; sourceTree = "<group>"; };
+		8052ADB6210E33B1009A4098 /* JSONPushViewControllerAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONPushViewControllerAction.h; sourceTree = "<group>"; };
+		8052ADB7210E33B1009A4098 /* JSONPushViewControllerAction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONPushViewControllerAction.m; sourceTree = "<group>"; };
+		8052ADBA210E60CA009A4098 /* JSONFileActionPayload.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONFileActionPayload.h; sourceTree = "<group>"; };
+		8052ADBB210E60CA009A4098 /* JSONFileActionPayload.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONFileActionPayload.m; sourceTree = "<group>"; };
+		8052ADBD210E61EB009A4098 /* JSONActionPayload.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONActionPayload.h; sourceTree = "<group>"; };
+		8052ADBE210F9FB4009A4098 /* UIView+JSONView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+JSONView.h"; sourceTree = "<group>"; };
+		8052ADBF210F9FB4009A4098 /* UIView+JSONView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+JSONView.m"; sourceTree = "<group>"; };
 		84BADB79AD950AF6FEF108DB /* Pods-JSONViewExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSONViewExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JSONViewExample/Pods-JSONViewExample.debug.xcconfig"; sourceTree = "<group>"; };
 		B693174770C8DAB73D215C9F /* Pods_JSONViewExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JSONViewExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -90,9 +100,9 @@
 				1C3EC20A2109EE920074A601 /* Main.storyboard */,
 				1C3EC20D2109EE930074A601 /* Assets.xcassets */,
 				1C3EC20F2109EE930074A601 /* LaunchScreen.storyboard */,
+				8052ADAF210C6AD3009A4098 /* json */,
 				1C3EC2122109EE930074A601 /* Info.plist */,
 				1C3EC2132109EE930074A601 /* main.m */,
-				1C3EC228210B353C0074A601 /* feed.json */,
 				8052AD9D210BBD79009A4098 /* JSONViewController */,
 			);
 			path = JSONViewExample;
@@ -110,13 +120,14 @@
 		8052AD9D210BBD79009A4098 /* JSONViewController */ = {
 			isa = PBXGroup;
 			children = (
+				8052ADB4210E30F0009A4098 /* JSONAction */,
 				8052AD9E210BBD79009A4098 /* JSONValue */,
 				8052ADA4210BBD79009A4098 /* JSONViewController.h */,
 				8052ADA8210BBD79009A4098 /* JSONViewController.m */,
 				8052ADA7210BBD79009A4098 /* JSONLayout.h */,
 				8052ADA5210BBD79009A4098 /* JSONLayout.m */,
-				8052ADA6210BBD79009A4098 /* JSONView.h */,
-				8052ADA9210BBD79009A4098 /* JSONView.m */,
+				8052ADBE210F9FB4009A4098 /* UIView+JSONView.h */,
+				8052ADBF210F9FB4009A4098 /* UIView+JSONView.m */,
 			);
 			path = JSONViewController;
 			sourceTree = SOURCE_ROOT;
@@ -131,6 +142,28 @@
 				8052ADA0210BBD79009A4098 /* JSONImage.m */,
 			);
 			path = JSONValue;
+			sourceTree = "<group>";
+		};
+		8052ADAF210C6AD3009A4098 /* json */ = {
+			isa = PBXGroup;
+			children = (
+				8052ADB0210C6AD3009A4098 /* menu.json */,
+				8052ADB1210C6AD3009A4098 /* feed.json */,
+			);
+			path = json;
+			sourceTree = "<group>";
+		};
+		8052ADB4210E30F0009A4098 /* JSONAction */ = {
+			isa = PBXGroup;
+			children = (
+				8052ADB5210E3337009A4098 /* JSONAction.h */,
+				8052ADBD210E61EB009A4098 /* JSONActionPayload.h */,
+				8052ADB6210E33B1009A4098 /* JSONPushViewControllerAction.h */,
+				8052ADB7210E33B1009A4098 /* JSONPushViewControllerAction.m */,
+				8052ADBA210E60CA009A4098 /* JSONFileActionPayload.h */,
+				8052ADBB210E60CA009A4098 /* JSONFileActionPayload.m */,
+			);
+			path = JSONAction;
 			sourceTree = "<group>";
 		};
 		84A846E48E37BD0FD4BC2B9D /* Frameworks */ = {
@@ -201,7 +234,8 @@
 			files = (
 				1C3EC2112109EE930074A601 /* LaunchScreen.storyboard in Resources */,
 				1C3EC20E2109EE930074A601 /* Assets.xcassets in Resources */,
-				1C3EC229210B353C0074A601 /* feed.json in Resources */,
+				8052ADB3210C6AD3009A4098 /* feed.json in Resources */,
+				8052ADB2210C6AD3009A4098 /* menu.json in Resources */,
 				1C3EC20C2109EE920074A601 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,12 +290,14 @@
 			files = (
 				1C3EC2092109EE920074A601 /* ViewController.m in Sources */,
 				1C3EC2142109EE930074A601 /* main.m in Sources */,
-				8052ADAE210BBD79009A4098 /* JSONView.m in Sources */,
+				8052ADBC210E60CA009A4098 /* JSONFileActionPayload.m in Sources */,
 				8052ADAB210BBD79009A4098 /* JSONColor.m in Sources */,
 				1C3EC2062109EE920074A601 /* AppDelegate.m in Sources */,
 				8052ADAA210BBD79009A4098 /* JSONImage.m in Sources */,
 				8052ADAC210BBD79009A4098 /* JSONLayout.m in Sources */,
 				8052ADAD210BBD79009A4098 /* JSONViewController.m in Sources */,
+				8052ADC0210F9FB4009A4098 /* UIView+JSONView.m in Sources */,
+				8052ADB8210E33B1009A4098 /* JSONPushViewControllerAction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @protocol JSONValue <NSObject>
-- (instancetype) initWithDictionary:(NSDictionary*)dictionary ;
+- (instancetype) initWithDictionary:(NSDictionary*)dictionary;
 @property (nonatomic, readonly) id valueObject;
 @end

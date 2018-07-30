@@ -16,9 +16,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSString *pathToFile = [[NSBundle mainBundle] pathForResource:@"feed" ofType:@"json"];
+    NSString *pathToFile = [[NSBundle mainBundle] pathForResource:@"menu" ofType:@"json"];
     NSData *data = [NSData dataWithContentsOfFile:pathToFile];
-    [self updateWithJSONData:data];
+    
+    NSError *error = nil;
+    NSDictionary *parsedJSON =
+        [NSJSONSerialization JSONObjectWithData:data
+                                        options:0
+                                          error:&error];
+    
+    [self updateWithJSONDictionary:parsedJSON];
 }
 
 

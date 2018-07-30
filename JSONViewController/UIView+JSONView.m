@@ -1,20 +1,22 @@
 //
-//  JSONView.m
+//  UIView+JSONView.m
 //  JSONViewExample
 //
-//  Created by moises on 7/26/18.
-//  Copyright © 2018 pie33.com. All rights reserved.
+//  Created by Moises Anthony Aranas on 7/30/18.
 //
 
-#import "JSONView.h"
+#import "UIView+JSONView.h"
 #import "JSONLayout.h"
 #import "JSONColor.h"
 #import "JSONImage.h"
+#import "JSONAction.h"
+#import "JSONPushViewControllerAction.h"
+#import <objc/runtime.h>
 @import YogaKit;
 
-@implementation JSONView
+@implementation UIView (JSONView)
 
-+ (Class) classForType:(NSString*)type {
++ (Class) classForValueType:(NSString*)type {
     static dispatch_once_t onceToken;
     static NSDictionary *classLookup;
     dispatch_once(&onceToken, ^{
@@ -25,60 +27,73 @@
     });
     return classLookup[type];
 }
-
-- (instancetype) initWithDictionary:(NSDictionary *)dictionary {
-    if ((self = [super initWithFrame:CGRectZero])) {
-        JSONLayout *jsonLayout = [[JSONLayout alloc] initWithDictionary:dictionary[@"layout"]];
-        [self configureAppearance:self withDictionary:dictionary[@"appearance"]];
-        _title = dictionary[@"appearance"][@"title"];
-        [self configureLayoutWithBlock:^(YGLayout * _Nonnull layout) {
-            [self configureView:self forLayout:layout withJsonLayout:jsonLayout];
-        }];
-        
-        [self configureSubviewsForView:self childrenInfo:dictionary[@"items"]];
-    }
-    return self;
+    
++ (Class<JSONAction>) classForActionType:(NSString*)type {
+    static dispatch_once_t onceToken;
+    static NSDictionary *classLookup;
+    dispatch_once(&onceToken, ^{
+        classLookup = @{
+                        @"push" : [JSONPushViewControllerAction class]
+                        };
+    });
+    return classLookup[type];
 }
-
-- (void) configureSubviewsForView:(UIView*)parentView childrenInfo:(NSArray*)childrenInfo {
+    
+- (void) configureWithDictionary:(NSDictionary*)dictionary {
+    JSONLayout *jsonLayout = [[JSONLayout alloc] initWithDictionary:dictionary[@"layout"]];
+    [self configureAppearanceWithDictionary:dictionary[@"appearance"]];
+    [self configureLayoutWithBlock:^(YGLayout * _Nonnull layout) {
+        [self configureForLayout:layout withJsonLayout:jsonLayout];
+    }];
+    [self configureActions:dictionary[@"actions"]];
+    
+    [self configureSubviewsWithChildrenInfo:dictionary[@"items"]];
+}
+    
+- (NSString*) title {
+    return objc_getAssociatedObject(self, @selector(title));
+}
+    
+- (void) setTitle:(NSString *)title {
+    if (title) {
+        objc_setAssociatedObject(self, @selector(title), title, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+}
+    
+- (void) configureSubviewsWithChildrenInfo:(NSArray*)childrenInfo {
     for (NSDictionary *child in childrenInfo) {
         Class class = NSClassFromString(child[@"class"]);
         if (!class) {
             continue;
         }
         UIView* view = ([(UIView*)[class alloc] initWithFrame:CGRectZero]);
-        JSONLayout *jsonLayout = [[JSONLayout alloc] initWithDictionary:child[@"layout"]];
-        [self configureAppearance:view withDictionary:child[@"appearance"]];
-        [view configureLayoutWithBlock:^(YGLayout * _Nonnull layout) {
-            [self configureView:view forLayout:layout withJsonLayout:jsonLayout];
-        }];
-        [self configureSubviewsForView:view childrenInfo:child[@"items"]];
-        [parentView addSubview:view];
+        [view configureWithDictionary:child];
+        [self addSubview:view];
     }
 }
-
-- (void) configureAppearance:(UIView*)view withDictionary:(NSDictionary*)appearanceDictionary {
+    
+- (void) configureAppearanceWithDictionary:(NSDictionary*)appearanceDictionary {
     for (NSString *key in [appearanceDictionary allKeys]) {
         id rawValue = appearanceDictionary[key];
         // String or number
         if ([rawValue isKindOfClass:[NSString class]] ||
             [rawValue isKindOfClass:[NSNumber class]]) {
-            [view setValue:rawValue forKey:key];
+            [self setValue:rawValue forKey:key];
         }
         else if ([rawValue isKindOfClass:[NSDictionary class]]) {
             NSDictionary *valueDescription = (NSDictionary*)rawValue;
             NSString *valueType = valueDescription[@"type"];
-            Class valueClass = [JSONView classForType:valueType];
+            Class valueClass = [UIView classForValueType:valueType];
             id <JSONValue> jsonValue = [[valueClass alloc] initWithDictionary:valueDescription];
-            [view setValue:jsonValue.valueObject forKey:key];
+            [self setValue:jsonValue.valueObject forKey:key];
         }
         else {
             NSLog(@"Unknown value type in appearance payload!");
         }
     }
 }
-
-- (void) configureView:(UIView*)view forLayout:(YGLayout*)layout withJsonLayout:(JSONLayout*)jsonLayout {
+    
+- (void) configureForLayout:(YGLayout*)layout withJsonLayout:(JSONLayout*)jsonLayout {
     layout.isEnabled = YES;
     layout.direction = jsonLayout.direction;
     layout.flexDirection = jsonLayout.flexDirection;
@@ -145,5 +160,35 @@
         layout.maxHeight = jsonLayout.maxHeight;
     }
 }
-
+    
+- (void) configureActions:(NSArray*)actions {
+    NSMutableDictionary *actionObjects = [NSMutableDictionary new];
+    for (NSDictionary *actionDictionary in actions) {
+        Class actionClass = [UIView classForActionType:actionDictionary[@"type"]];
+        if (actionClass) {
+            id<JSONAction> action = [[actionClass alloc] initWithDictionary:actionDictionary];
+            NSString *trigger = action.triggerType;
+            if (trigger) {
+                actionObjects[trigger] = action;
+            }
+            if ([trigger isEqualToString:@"tap"]) {
+                UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
+                [self addGestureRecognizer:recognizer];
+            }
+        }
+    }
+    if (actionObjects.count) {
+        objc_setAssociatedObject(self, @selector(configureActions:), actionObjects, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+}
+    
+#pragma mark - action handlers
+- (void) tapAction:(UITapGestureRecognizer*)sender {
+    if (sender.view == self) {
+        NSDictionary *actionObjects = objc_getAssociatedObject(self, @selector(configureActions:));
+        id<JSONAction> actionObject = actionObjects[@"tap"];
+        [actionObject performAction];
+    }
+}
+    
 @end

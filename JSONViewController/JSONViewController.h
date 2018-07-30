@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface JSONViewController : UIViewController
-- (instancetype) initWithJSONData:(NSData*)jsonData;
-- (void) updateWithJSONData:(NSData*)jsonData;
+- (instancetype) initWithJSONDictionary:(NSDictionary*)jsonDictionary;
+- (void) updateWithJSONDictionary:(NSDictionary*)jsonDictionary;
 @end

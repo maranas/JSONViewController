@@ -7,13 +7,13 @@
 //
 
 #import "JSONViewController.h"
-#import "JSONView.h"
+#import "UIView+JSONView.h"
 @import YogaKit;
 
 @interface JSONViewController ()
 @property (nonatomic) NSDictionary *viewDictionary;
 @property (nonatomic, readonly) dispatch_queue_t parseQueue;
-@property (nonatomic) JSONView *containedView;
+@property (nonatomic) UIView *containedView;
 @property (nonatomic) UIScrollView *scrollContainer;
 @property (nonatomic) UIActivityIndicatorView *activityIndicatorView;
 @end
@@ -21,41 +21,30 @@
 @implementation JSONViewController
 @synthesize parseQueue = _parseQueue;
 
-- (instancetype) init {
-    if ((self = [super init])) {
+- (dispatch_queue_t) parseQueue {
+    if (!_parseQueue) {
         _parseQueue = dispatch_queue_create("com.json.parsequeue", DISPATCH_QUEUE_SERIAL);
     }
-    return self;
-}
-
-- (dispatch_queue_t) parseQueue {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        self->_parseQueue = dispatch_queue_create("com.json.parsequeue", DISPATCH_QUEUE_SERIAL);
-    });
     return _parseQueue;
 }
 
-- (instancetype) initWithJSONData:(NSData*)jsonData {
+- (instancetype) initWithJSONDictionary:(NSDictionary*)jsonDictionary {
     if ((self = [super init])) {
-        [self updateWithJSONData:jsonData];
+        _parseQueue = dispatch_queue_create("com.json.parsequeue", DISPATCH_QUEUE_SERIAL);
+        _viewDictionary = jsonDictionary;
     }
     return self;
 }
-
-- (void) updateWithJSONData:(NSData*)jsonData {
+    
+- (void) updateWithJSONDictionary:(NSDictionary*)jsonDictionary {
     [self.activityIndicatorView stopAnimating];
     __weak typeof (self) weakSelf = self;
     dispatch_async(self.parseQueue, ^{
         typeof (self) strongSelf = weakSelf;
-        NSError *error = nil;
-        NSDictionary *parsedJSON =
-            [NSJSONSerialization JSONObjectWithData:jsonData
-                                            options:0
-                                              error:&error];
         dispatch_async(dispatch_get_main_queue(), ^{
             [strongSelf.containedView removeFromSuperview];
-            strongSelf.containedView = [[JSONView alloc] initWithDictionary:parsedJSON];
+            strongSelf.containedView = [[UIView alloc] initWithFrame:CGRectZero];
+            [strongSelf.containedView configureWithDictionary:jsonDictionary];
             if (strongSelf.isViewLoaded) {
                 [strongSelf updateView];
             }
@@ -94,6 +83,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self updateWithJSONDictionary:self.viewDictionary];
     self.scrollContainer = [[UIScrollView alloc] initWithFrame:CGRectZero];
     self.scrollContainer.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:self.scrollContainer];
